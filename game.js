@@ -6,13 +6,18 @@ const error = document.querySelector('#error');
 document.querySelector('#btn1').addEventListener("click",machineVshuman);
 document.querySelector('#btn3').addEventListener("click",humanVshuman);
 
+/////////////////////////////////////////////////
 // Sound on the Choosing - button whenever it's clicked
 var bleep = new Audio();
 bleep.src = 'Audio-effect/mixkit-game.wav';
-////////////////////////////////////////////////
+/////////////////////////////////////////////////
 // Sound on the button whenever it's clicked
 var bleep2 = new Audio();
 bleep2.src = 'Audio-effect/mixkit-arcade-game-jump-coin-216.wav';
+/////////////////////////////////////////////////
+// Sound on whenever player 1 wins
+var bleep3 = new Audio();
+bleep3.src = 'Audio-effect/jubilant-fanfare.mp3';
 
 const game = {
   currentPlayer: "",
@@ -109,6 +114,7 @@ function updateScore () {
 }
 
 function displayWinMessage () {
+  bleep3.play() // Sound of player 1 
   alert(`${this.currentPlayer === 'p1' ? 'player 1' : this.currentPlayer === 'p2' ? 'player 2' : 'machine'} has won!`)
 }
 
