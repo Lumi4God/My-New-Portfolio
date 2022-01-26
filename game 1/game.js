@@ -26,6 +26,8 @@ bleep2.src = 'Audio-effect/mixkit-arcade-game-jump-coin-216.wav';
 // Sound on whenever player 1 wins
 var bleep3 = new Audio();
 bleep3.src = 'Audio-effect/jubilant-fanfare.mp3';
+///////////////////////////////////////////////
+
 
 const game = {
   currentPlayer: "",
