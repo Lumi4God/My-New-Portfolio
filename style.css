@@ -537,13 +537,16 @@ li:hover ol{
               inset -8px -8px 8px #ffffff;
     font-family: 'Poppins', sans-serif;
     transition: all 0.3s ease;
+    /* border: 1px solid rgb(82, 250, 66); */
 }
 .contact .right form .field input:focus,
 .contact .right form .textarea textarea:focus{
-    border-color: #b3b3b3;
+    /* border-color: #b3b3b3; */
+    border: 3px solid rgb(82, 250, 66);
 }
 .contact .right form .textarea textarea{
   padding-top: 10px;
+  /* border: 1px solid rgb(82, 250, 66); */
   resize: none;
   box-shadow: inset 8px 8px 8px #cbced1,
               inset -8px -8px 8px #ffffff;
