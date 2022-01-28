@@ -573,10 +573,18 @@ li:hover ol{
 }
 /*social-icons on contact*/
 .anchorMother a i{
-    box-shadow: inset 8px 8px 8px #cbced1,
-              inset 8px 8px 8px #ffffff;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 5px;
+    font-size: 30px;
+    box-shadow: -3px -3px 5px 0px #ffffffa6, 3px 3px 5px 0px #0000004a;
 }
-
+.anchorMother i:hover {
+    box-shadow: -3px -3px 5px 0px #ffffffa6 inset,
+        3px 3px 5px 0px #0000004a inset;
+}
 /* footer section styling */
 footer{
     background: #111;
