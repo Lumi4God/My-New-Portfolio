@@ -100,3 +100,11 @@ setInterval(()=> {
     time.textContent = hours + ":" + minutes + ":" + seconds + ":" + day_night;
 });
 
+///////////////////////////////////////////////////
+/* $(document).on("click",".btn3",function()
+
+{
+
+$(".btn1").removeClass("hidden");
+
+}); */

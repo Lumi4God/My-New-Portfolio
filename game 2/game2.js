@@ -13,6 +13,9 @@ bleep3.src = 'audio/congratulations.mp3';
 // Second sound on whenever player 1 wins
 var bleep4 = new Audio();
 bleep4.src = 'audio/clap.mp3';
+// Third sound on whenever player 1 wins
+var bleep7 = new Audio()
+bleep7.src = 'audio/coins-drop-1.mp3'
 
 // Sound on whenever two cards are the same
 var bleep5 = new Audio();
@@ -22,7 +25,13 @@ bleep5.src = 'audio/oohhh.wav';
 var bleep6 = new Audio();
 bleep6.src = 'audio/lost-out-screw-you.wav';
 
+// sound of the coin whenever it's flipped
+var bleep8 = new Audio();
+bleep8.src = 'audio/coins.mp3'
+
 // variables
+var youWon = false
+
 let arrayOfRandomNumbers = [];
 
 let noOfTries = 1;
@@ -41,23 +50,30 @@ function generator() {
     arrayOfRandomNumbers = [];
     imgReset();
 
+    var x
+    const CHANCES = 31
+    var mayLose = (Math.floor(Math.random() * CHANCES)) // 0 falsy
+
     for (let index = 0; index < 3; index++) {  // number of  images that can appear on the screen at a time
 
-      var x = Math.floor(Math.random() * 31 + 1);  // creating random numbers of images inserted in the game
+      if (!index || mayLose) {
+        x = Math.ceil(Math.random() * 31);  // creating random numbers of images inserted in the game
+      }
 
       // getting the images thru the link
       document.getElementById("divImage").innerHTML += `
             <img src="images/fruit${x}.jpeg" style="width: 230px; height: 300px; border-radius: 10%;">
             `;
       arrayOfRandomNumbers.push(x);
-      }
-      console.log(noOfTries);
+    }
+
+    console.log(noOfTries);
 
     check_three_numbers(arrayOfRandomNumbers);//changed function name and called it
 
     noOfTries++; // times you can play (increment)
- 
-  
+
+
   }
   else {
     reset();
@@ -69,7 +85,7 @@ function imgReset() {
   // document.getElementsById("divImage").reset();  
   document.getElementById("divImage").innerHTML = "";
 }
-function reset() { 
+function reset() {
   h1.innerText = "Play again...";
   noOfTries = 1;
   arrayOfRandomNumbers = [];
@@ -78,29 +94,36 @@ function reset() {
 
 /****************CHECKING*THE*NUMBERS*******************/
 function check_three_numbers(array) {
-  [num1, num2, num3] = array;
-  if (noOfTries <= 9) {
-    checker();
-  } else {
-    if (num1 === num2 && num2 === num3) {
-      bleep3.play() // Sound on when player 1 wins
-      h1.innerText = `Jackpot! you've won the game`;
-      
-    } else {
-      bleep6.play() // Sound on when player lost out
-      h1.innerText = `You lost out!`;
-     
-    }
+  const [num1, num2, num3] = array;
+  if (noOfTries <= 10) {
+    checker(array);
+  } else if (!youWon) {
+    // /// THis code will only be called on the 10th time
+    // if (num1 === num2 && num2 === num3) {
+    //   bleep3.play() // Sound on when player 1 wins
+    //   bleep4.play() // Sound on when player 1 wins 
+    //   h1.innerText = `Jackpot! you've won the game`;
+
+  } // else {
+    // bleep6.play() // Sound on when player lost out
+    // h1.innerText = `You lost out!`;
+    // }
   }
-}
+
+
 
 /*********************CHECKING*THE*NUMBER*OF*TRIES**********************/
-function checker() {
-  tryVal = noOfTries === 9 ?  "try" :  "tries";
+function checker([num1, num2, num3]) {
+  const tryVal = noOfTries === 9 ? "try" : "tries";
   if (num1 === num2 && num2 === num3) {
-    bleep4.play() // Sound on when player 1 wins 
+    bleep3.play() // First sound on when player 1 wins 
+    bleep4.play() // Second sound on when player 1 wins 
+    bleep7.play() // Third sound on when player 1 wins
+    // console.log(bleep4)
     h1.innerText = `Jackpot! you've won the game`;
-    imgReset();
+
+    youWon = true
+    // imgReset();
   } else if (num1 === num2 || num2 === num3 || num3 === num1) {
     bleep5.play() // Sound on whenever two cards are the same
     h1.innerText = `You're almost there, ${10 - noOfTries} more ${tryVal}`;
@@ -115,12 +138,64 @@ const btn = document.querySelectorAll('button')
 
 for (let index = 0; index < btn.length; index++) {
 
-    btn[index].addEventListener('click', function (e) {
+  btn[index].addEventListener('click', function (e) {
 
-        btn[index].classList.toggle('button-clicked');
+    btn[index].classList.toggle('button-clicked');
 
-        // no icon inserted yet
+    // no icon inserted yet
 
-        // btn[index].firstElementChild.classList.toggle('icon-clicked')
-    })
+    // btn[index].firstElementChild.classList.toggle('icon-clicked')
+  })
 }
+
+/////////////////////1/ENABLE/A/DISABLED/BUTTON//////////////////////////
+document.getElementById("flip").addEventListener("click",function(e){             
+  document.getElementById("btn1").disabled = false; 
+},false); 
+/////////////////////2/ENABLE/A/DISABLED/BUTTON//////////////////////////
+/* document.getElementById("btn3").onclick(function(e){   
+  document.getElementById("btn1").disabled = false; 
+});  */
+////////////////////////Function/for/flip/coin//////////////////////////
+const coin = document.querySelector('#coin');
+const flipButton = document.querySelector('#flip');
+const heads = document.querySelector('#headsCount');
+const tails = document.querySelector('#tailsCount');
+
+function deferFn(callback, ms) {
+  setTimeout(callback, ms); 
+}
+
+function flipCoin() {
+  coin.setAttribute('class', '');
+  const random = Math.random();
+  const result = random < 0.5 ? 'heads' : 'tails';
+ deferFn(function() {
+   coin.setAttribute('class', 'animate-' + result);
+   bleep8.play() // Third sound on when player 1 wins
+   deferFn(processResult.bind(null, result), 2900);
+ }, 100);
+}
+
+flipButton.addEventListener('click', flipCoin);
+
+/////////////////////////////////////////////////////////
+/**********adding*image*on*html*div*hand-image**********/
+function showImage() {
+  let imgDisplay = document.getElementById('hand-image');
+  imgDisplay.style.visibility = 'visible';
+}
+
+showImage()
+/* var img = document.createElement("img");
+    img.src = "images/hand.png";
+
+    var div = document.getElementById("hand-image");
+    div.appendChild(img);
+    img.style.width = '180px'
+    img.style.position = 'absolute'
+    img.style.left = '-500px'
+    img.style.top = '700px' */
+
+
+

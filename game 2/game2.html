@@ -19,23 +19,39 @@
 </head>
 
 <body>
-
+    <!--Game screen-->
     <div class="container">
+        <!--messages appear here-->
         <h1>Jackpot Card Game</h1>
-
+        <!--card images appear here-->
         <div id="divImage"></div>
+
+        <!--Coin button-->
+        <div id="coin" class=''>
+            <div id="heads" class="heads"></div>
+            <div id="tails" class="tails"></div>
+        </div>
+        <!--Coin flip button-->
+        <div id="flip">Flip</div>
+
+        <!--experimenting-->
+        <div id="hand-image">
+            <img src="images/hand.png" alt="hand holding coins">
+        </div>
 
     </div>
 
+    <!--Game button-->
     <section>
 
-        <button id="btn1" onmousedown="bleep.play ()" onclick="generator()">Play</button>
+        <button disabled id="btn1" onmousedown="bleep.play ()" onclick="generator()">Play</button>
 
         <button id="btn2" onmousedown="bleep2.play ()" onclick="imgReset()" type="reset" value="Reset body ">Reset
-
         </button>
 
     </section>
+
+
 
     <!--AUTOPLAY SONGS-->
     <!-- <audio src="background-music/Dont kill yourself beat new.mp3" autoplay loop></audio> -->
