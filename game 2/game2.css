@@ -13,14 +13,22 @@ body{
     background: linear-gradient(
         90deg, rgba(46,44,45,1) 0%,
         rgba(66,64,67,1) 100%);
-    /* background-image: url("background/game-of-games_gross.jpg");
+    /* background-image: url("https://img.myloview.de/fototapeten/abstract-futuristic-black-and-orange-gaming-background-with-glossy-metal-esport-shapes-vector-design-template-technology-concept-can-use-element-game-banner-sport-poster-wallpaper-web-streaming-400-221375104.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center; */
 }
 
-/*Coin button*/ 
-#hand-image img{
+/*hand image pop up when it's jackpot*/ 
+#myHand1{
+    display: none;
+    width: 190px;
+    position: absolute;
+    left: -500px;
+    top: 700px;
+}
+/*hand image pop up when 2 images are same*/
+#myHand2{
     display: none;
     width: 180px;
     position: absolute;

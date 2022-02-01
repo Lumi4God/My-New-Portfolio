@@ -80,7 +80,7 @@ function generator() {
   }
 }
 
-/***************Reset*Function*****************/
+/********************Reset*Function*********************/
 function imgReset() {
   // document.getElementsById("divImage").reset();  
   document.getElementById("divImage").innerHTML = "";
@@ -110,7 +110,10 @@ function check_three_numbers(array) {
     // }
   }
 
-
+/********************IMAGE*POP*UP*WHEN*ITS*JACKPOT********************/
+var myHandImg = document.getElementById("myHand1");
+/******************IMAGE*POP*UP*WHEN*2*IMAGES*ARE*SAME****************/
+var myHandImage = document.getElementById("myHand2")
 
 /*********************CHECKING*THE*NUMBER*OF*TRIES**********************/
 function checker([num1, num2, num3]) {
@@ -123,10 +126,24 @@ function checker([num1, num2, num3]) {
     h1.innerText = `Jackpot! you've won the game`;
 
     youWon = true
+    // calling the image to pop up when it's jackpot
+    myHandImg.style.display = 'block'
+    // setting time-out for the pop up image
+    setTimeout(() => {
+      myHandImg.style.display = 'none'
+    }, 6000);
     // imgReset();
   } else if (num1 === num2 || num2 === num3 || num3 === num1) {
     bleep5.play() // Sound on whenever two cards are the same
     h1.innerText = `You're almost there, ${10 - noOfTries} more ${tryVal}`;
+
+    // calling the image to pop up when 2 images are same
+    myHandImage.style.display = 'block'
+    // setting time-out for the pop up image when 2 images are same
+    setTimeout(() => {
+      myHandImage.style.display = 'none'
+    }, 3000);
+
   } else {
     h1.innerText = `Try again, ${10 - noOfTries} more ${tryVal}`;
   }
@@ -152,10 +169,7 @@ for (let index = 0; index < btn.length; index++) {
 document.getElementById("flip").addEventListener("click",function(e){             
   document.getElementById("btn1").disabled = false; 
 },false); 
-/////////////////////2/ENABLE/A/DISABLED/BUTTON//////////////////////////
-/* document.getElementById("btn3").onclick(function(e){   
-  document.getElementById("btn1").disabled = false; 
-});  */
+
 ////////////////////////Function/for/flip/coin//////////////////////////
 const coin = document.querySelector('#coin');
 const flipButton = document.querySelector('#flip');
@@ -179,23 +193,7 @@ function flipCoin() {
 
 flipButton.addEventListener('click', flipCoin);
 
-/////////////////////////////////////////////////////////
-/**********adding*image*on*html*div*hand-image**********/
-function showImage() {
-  let imgDisplay = document.getElementById('hand-image');
-  imgDisplay.style.visibility = 'visible';
-}
 
-showImage()
-/* var img = document.createElement("img");
-    img.src = "images/hand.png";
-
-    var div = document.getElementById("hand-image");
-    div.appendChild(img);
-    img.style.width = '180px'
-    img.style.position = 'absolute'
-    img.style.left = '-500px'
-    img.style.top = '700px' */
 
 
 
