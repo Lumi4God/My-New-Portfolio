@@ -17,9 +17,15 @@ bleep4.src = 'audio/clap.mp3';
 var bleep7 = new Audio()
 bleep7.src = 'audio/coins-drop-1.mp3'
 
-// Sound on whenever two cards are the same
+// First sound on whenever two cards are the same
 var bleep5 = new Audio();
 bleep5.src = 'audio/oohhh.wav';
+// Second sound on whenever two cards are the same
+var bleep5b = new Audio();
+bleep5b.src = 'audio/oh-no.wav';
+// Third sound on whenever two cards are the same
+var bleep5c = new Audio();
+bleep5c.src = 'audio/ah-ha.wav';
 
 // Sound on whenever player 1 lost out
 var bleep6 = new Audio();
@@ -126,15 +132,19 @@ function checker([num1, num2, num3]) {
     h1.innerText = `Jackpot! you've won the game`;
 
     youWon = true
+
     // calling the image to pop up when it's jackpot
     myHandImg.style.display = 'block'
     // setting time-out for the pop up image
     setTimeout(() => {
       myHandImg.style.display = 'none'
     }, 6000);
+
     // imgReset();
   } else if (num1 === num2 || num2 === num3 || num3 === num1) {
-    bleep5.play() // Sound on whenever two cards are the same
+    bleep5.play() // first sound on whenever two cards are the same
+    bleep5b.play() // second sound on whenever two cards are the same
+    bleep5c.play() // third sound on whenever two cards are the same
     h1.innerText = `You're almost there, ${10 - noOfTries} more ${tryVal}`;
 
     // calling the image to pop up when 2 images are same
