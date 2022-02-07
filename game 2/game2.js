@@ -68,8 +68,8 @@ function generator() {
 
       // getting the images thru the link
       document.getElementById("divImage").innerHTML += `
-            <img src="images/fruit${x}.jpeg" style="width: 230px; height: 300px; border-radius: 10%;">
-            `;
+            <img id="divImg" src="images/fruit${x}.jpeg" >
+            `; // style="width: 230px; height: 300px; border-radius: 10%;"
       arrayOfRandomNumbers.push(x);
     }
 
