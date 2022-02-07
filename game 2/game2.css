@@ -346,9 +346,11 @@ i{
 @media screen and (min-width: 1200px) and (max-width: 1399px){
     .container{
         width: 40em;
+        height: 25em;
     }
     .container::before{
         width: 45em;
+        height: 27em;
     }
     h1{
         font-size: 20px;
@@ -367,13 +369,13 @@ i{
         width: 190px;
         position: absolute;
         left: -280px;
-        top: 600px;
+        top: 450px;
     }
     #myHand2{
         width: 180px;
         position: absolute;
         left: -280px;
-        top: 600px;
+        top: 450px;
     }
     #flip {
         position: absolute;
@@ -423,7 +425,7 @@ i{
     /* footer and every other properties in it */ 
     footer{
         position: relative;
-        bottom: -190px;
+        bottom: -140px;
         font-size: 20px;
         width: 100%;
         height: 25px;
