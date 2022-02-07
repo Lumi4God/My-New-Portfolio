@@ -21,7 +21,7 @@ body{
 
 /*hand image pop up when it's jackpot*/ 
 #myHand1{
-    /* display: none; */
+    display: none;
     width: 190px;
     position: absolute;
     left: -500px;
@@ -29,7 +29,7 @@ body{
 }
 /*hand image pop up when 2 images are same*/
 #myHand2{
-    /* display: none; */
+    display: none;
     width: 180px;
     position: absolute;
     left: -500px;
