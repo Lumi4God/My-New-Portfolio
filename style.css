@@ -110,44 +110,18 @@ section .title::after{
 .navbar .menu li{
     list-style: none;
     display: inline-block;
-    /* color: crimson; */
-    position: relative; /**/
-    font-size: 18px;/**/
-    margin-left: 25px;/**/
-}
-/**/
-.last-li{
-    background-color: blanchedalmond;
-    padding: 8px;
     color: crimson;
-    border-radius: 10%;
-    font-weight: 600;
-}
-/**/
-li ol{
-    display: none;
-    color: #fff;
+    /**/
+    /* position: relative;
     font-size: 18px;
-    font-weight: 500;
-    width: 120px;
-    padding-top: 10px;
-}
-/**/
-li ol a{
-    margin-bottom: 10px;
-}
-/**/
-li:hover ol{
-    display: block;
-    position: absolute;
-    color: crimson;
+    margin-left: 25px; */
 }
 .navbar .menu li a{
-    display: inline-flex;
+    display: block;
     color: #fff;
     font-size: 18px;
     font-weight: 500;
-    /* margin-left: 25px; */
+    margin-left: 25px;
     transition: color 0.3s ease;
 }
 .navbar .menu li a:hover{
@@ -400,16 +374,16 @@ li:hover ol{
     width: 70%;
 }
 .skills-content .right .js::before{
-    width: 40%;
+    width: 30%;
 }
-.skills-content .right .php::before{
-    width: 50%;
+.skills-content .right .react::before{
+    width: 30%;
 }
 .skills-content .right .mysql::before{
     width: 70%;
 }
 
-/* teams section styling */
+/* projects section styling */
 .teams .title::after{
     content: "on my GitHub ";
 }
@@ -470,6 +444,38 @@ li:hover ol{
 .owl-dot.active,
 .owl-dot:hover{
     background: crimson!important;
+}
+
+/*my games section styling*/
+.games .title::after{
+    content: "on my GitHub ";
+    background: rgb(49, 46, 46);
+}
+.titled{
+    color: #fff;
+}
+.games{
+    background: rgb(49, 46, 46);
+    height: 30vh;
+}
+.mum{
+    text-align: center;
+}
+.mum a{
+    margin-left: 50px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    background-image: linear-gradient(crimson, crimson);
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    background-position-x: right;
+    transition: background-size 500ms;
+}
+.mum a:hover{
+    background-size: 100% 100%;
+    background-position-x: left;
+    padding: 5px;
 }
 
 /* contact section styling */
@@ -642,16 +648,6 @@ footer span a:hover{
     }
     .navbar .menu li{
         display: block;
-        font-size: 25px;
-        color: #fff;
-        font-weight: 500;
-    }
-    .last-li{
-        background: none;
-    }
-    ol a{
-        display: block;
-        width: 30em;
     }
     .navbar .menu li a{
         display: inline-block;
@@ -712,10 +708,6 @@ footer span a:hover{
 }
 
 @media (max-width: 500px) {
-    ol a{
-        display: block;
-        width: 10em;
-    }
     .home .home-content .text-2{
         font-size: 50px;
     }
