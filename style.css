@@ -126,6 +126,10 @@ section .title::after{
 }
 .navbar .menu li a:hover{
     color: crimson;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    padding: 5px;
+    box-shadow: -3px -3px 5px 0px #ffffffa6, 3px 3px 5px 0px #0000004a;
 }
 .navbar.sticky .menu li a:hover{
     color: #fff;
@@ -201,6 +205,23 @@ section .title::after{
     color: crimson;
     font-weight: 500;
 }
+.emoji{
+    font-size: 25px;
+    display: inline-block;
+    /* transform-origin: 70% 70%; */
+    animation: emoji 2s infinite;
+}
+@keyframes emoji {      
+    0% { transform: rotate( 0.0deg) }
+   10% { transform: rotate(14.0deg) }  
+   20% { transform: rotate(-8.0deg) }
+   30% { transform: rotate(14.0deg) }
+   40% { transform: rotate(-4.0deg) }
+   50% { transform: rotate(10.0deg) }
+   60% { transform: rotate( 0.0deg) }  
+  100% { transform: rotate( 0.0deg) }
+}
+
 .home .home-content a{
     display: inline-block;
     background: crimson;
@@ -380,7 +401,7 @@ section .title::after{
     width: 30%;
 }
 .skills-content .right .mysql::before{
-    width: 70%;
+    width: 30%;
 }
 
 /* projects section styling */
