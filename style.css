@@ -238,6 +238,93 @@ section .title::after{
     color: crimson;
     background: none;
 }
+/*WELCOME ANIMATION*/
+.mother11{
+    width: 20em;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    /* margin-top: 100px; */
+    bottom: -270px;
+}
+@keyframes welcome {
+   0%{
+     /* transform: rotateY(90); */
+   } 
+   10%{
+    /* transform: rotateX(360) translate(50px, 200px);
+    top: 50px; */
+   }
+   20%{
+       right: 10px;
+       transform: scale(10%);
+   }
+   50%{
+    right: 10px;
+    transform: scale(50%);
+}
+}
+.son1{
+    width: 50px;
+    height: 50px;
+    animation: welcome 2s infinite;
+    transition: 3s;
+    /* background-color: rgb(97, 94, 94); */
+    font-size: 3em;
+    color: rgb(58, 185, 223);
+}
+.son2{
+    width: 50px;
+    height: 50px;
+    animation: welcome 2s infinite;
+   /*  background-color: rgb(207, 10, 10); */
+    font-size: 3em;
+    color: rgb(223, 77, 58);
+}
+.son3{
+    width: 50px;
+    height: 50px;
+    animation: welcome 2s infinite;
+    /* background-color: rgb(10, 194, 34); */
+    font-size: 3em;
+    color: rgb(83, 223, 58);
+}
+.daughter1{
+    width: 50px;
+    height: 50px;
+    animation: welcome 2s infinite;
+    /* background-color: rgb(11, 26, 160); */
+    font-size: 3em;
+    color: rgb(58, 71, 223);
+}
+.daughter2{
+    width: 50px;
+    height: 50px;
+    animation: welcome 2s infinite;
+    /* background-color: rgb(212, 193, 19); */
+    font-size: 3em;
+    color: rgb(235, 177, 52);
+}
+.daughter3{
+    width: 50px;
+    height: 50px;
+    animation: welcome 2s infinite;
+   /*  background-color: rgb(158, 47, 161); */
+    font-size: 3em;
+    color: rgb(216, 108, 221);
+}
+.daughter4{
+    width: 50px;
+    height: 50px;
+    animation: welcome 2s infinite;
+    /* background-color: rgb(228, 139, 23); */
+    font-size: 3em;
+    color: rgb(218, 196, 57);
+}
+
 
 /* about section styling */
 .about .title::after{
@@ -389,18 +476,21 @@ section .title::after{
     background: crimson;
 }
 .skills-content .right .html::before{
-    width: 70%;
+    width: 80%;
 }
 .skills-content .right .css::before{
-    width: 70%;
+    width: 80%;
 }
 .skills-content .right .js::before{
-    width: 30%;
+    width: 40%;
 }
 .skills-content .right .react::before{
+    width: 40%;
+}
+.skills-content .right .node::before{
     width: 30%;
 }
-.skills-content .right .mysql::before{
+.skills-content .right .express::before{
     width: 30%;
 }
 
