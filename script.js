@@ -72,6 +72,7 @@ $(document).ready(function(){
     });
 });
 
+
 //////////////////////////////////////////////
 /****************Digital*clock***************/
 const message = document.querySelector("#message")
